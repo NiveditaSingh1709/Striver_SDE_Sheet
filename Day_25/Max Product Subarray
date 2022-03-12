@@ -1,1 +1,19 @@
 
+import sys
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        ans=-sys.maxsize-1
+        c=1
+        for i in range(len(nums)):
+            c*=nums[i]
+            ans=max(c,ans)
+            if c==0:
+                c=1
+        c=1
+        for i in range(len(nums)-1,-1,-1):
+            c*=nums[i]
+            ans=max(ans,c)
+            if c==0:
+                c=1
+        return ans
+            
