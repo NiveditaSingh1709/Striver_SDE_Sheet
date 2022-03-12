@@ -1,0 +1,9 @@
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        LIS=[0]*len(nums)
+        for i in range(len(nums)):
+            LIS[i]=1
+            for j in range(i):
+                if nums[i]>nums[j] and LIS[i]<LIS[j]+1:
+                    LIS[i]+=1
+        return max(LIS)
